@@ -18,3 +18,22 @@ C:\Users\Drenalol\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1
 C:\Users\Drenalol\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\BDO_Sim\obj\Debug\WindowsFormsApplication1.Form1.resources
 C:\Users\Drenalol\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\BDO_Sim\obj\Debug\BDO_Sim.Properties.Resources.resources
 C:\Users\Drenalol\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\BDO_Sim\obj\Debug\BDO_Sim.csproj.GenerateResource.Cache
+C:\Users\Bogdan.Yanysh\Desktop\BDO_Simulator-master\bin\Debug\BDO_Sim.exe.config
+C:\Users\Bogdan.Yanysh\Desktop\BDO_Simulator-master\obj\Debug\BDO_Sim.exe
+C:\Users\Bogdan.Yanysh\Desktop\BDO_Simulator-master\obj\Debug\BDO_Sim.pdb
+C:\Users\Bogdan.Yanysh\Desktop\BDO_Simulator-master\bin\Debug\BDO_Sim.exe
+C:\Users\Bogdan.Yanysh\Desktop\BDO_Simulator-master\bin\Debug\BDO_Sim.pdb
+C:\Users\Bogdan.Yanysh\Desktop\BDO_Simulator-master\obj\Debug\BDO_Sim.csprojResolveAssemblyReference.cache
+C:\Users\Bogdan.Yanysh\Desktop\BDO_Simulator-master\obj\Debug\BDO_Sim.Properties.Resources.resources
+C:\Users\Bogdan.Yanysh\Desktop\BDO_Simulator-master\obj\Debug\BDO_Sim.csproj.GenerateResource.Cache
+C:\Users\Bogdan.Yanysh\Desktop\BDO_Simulator-master\obj\Debug\BDO_Sim.MainFrm.resources
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\bin\Debug\BDO_Sim.exe.config
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\obj\Debug\BDO_Sim.exe
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\obj\Debug\BDO_Sim.pdb
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\bin\Debug\BDO_Sim.exe
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\bin\Debug\BDO_Sim.pdb
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\obj\Debug\BDO_Sim.csprojResolveAssemblyReference.cache
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\obj\Debug\BDO_Sim.MainFrm.resources
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\obj\Debug\BDO_Sim.Properties.Resources.resources
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\obj\Debug\BDO_Sim.csproj.GenerateResource.Cache
+D:\OneDrive\MySoft\VS_CSharp\BDO_Sim\BDO_Sim\obj\Debug\BDO_Sim.frm2.resources
