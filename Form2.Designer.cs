@@ -89,6 +89,7 @@
             this.Na8.TabIndex = 1;
             this.Na8.Text = "13";
             this.Na8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na8.TextChanged += new System.EventHandler(this.Na8_TextChanged);
             // 
             // label1
             // 
@@ -104,9 +105,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(402, 13);
+            this.label2.Size = new System.Drawing.Size(408, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Здесь указываем со скольки фейлов начинаем точить на определнную точку";
+            this.label2.Text = "Здесь указываем со скольки фейлов начинаем точить на определенную точку";
             // 
             // label3
             // 
@@ -126,6 +127,7 @@
             this.Na9.TabIndex = 4;
             this.Na9.Text = "14";
             this.Na9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na9.TextChanged += new System.EventHandler(this.Na9_TextChanged);
             // 
             // label4
             // 
@@ -145,6 +147,7 @@
             this.Na10.TabIndex = 6;
             this.Na10.Text = "15";
             this.Na10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na10.TextChanged += new System.EventHandler(this.Na10_TextChanged);
             // 
             // label5
             // 
@@ -164,6 +167,7 @@
             this.Na11.TabIndex = 8;
             this.Na11.Text = "15";
             this.Na11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na11.TextChanged += new System.EventHandler(this.Na11_TextChanged);
             // 
             // label6
             // 
@@ -183,6 +187,7 @@
             this.Na12.TabIndex = 10;
             this.Na12.Text = "15";
             this.Na12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na12.TextChanged += new System.EventHandler(this.Na12_TextChanged);
             // 
             // label7
             // 
@@ -202,6 +207,7 @@
             this.Na13.TabIndex = 12;
             this.Na13.Text = "15";
             this.Na13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na13.TextChanged += new System.EventHandler(this.Na13_TextChanged);
             // 
             // label8
             // 
@@ -221,6 +227,7 @@
             this.Na14.TabIndex = 14;
             this.Na14.Text = "20";
             this.Na14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na14.TextChanged += new System.EventHandler(this.Na14_TextChanged);
             // 
             // label9
             // 
@@ -240,6 +247,7 @@
             this.Na15.TabIndex = 16;
             this.Na15.Text = "20";
             this.Na15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na15.TextChanged += new System.EventHandler(this.Na15_TextChanged);
             // 
             // label10
             // 
@@ -259,6 +267,7 @@
             this.Na16.TabIndex = 18;
             this.Na16.Text = "15";
             this.Na16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na16.TextChanged += new System.EventHandler(this.Na16_TextChanged);
             // 
             // label11
             // 
@@ -278,6 +287,7 @@
             this.Na17.TabIndex = 20;
             this.Na17.Text = "20";
             this.Na17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na17.TextChanged += new System.EventHandler(this.Na17_TextChanged);
             // 
             // label12
             // 
@@ -297,6 +307,7 @@
             this.Na18.TabIndex = 22;
             this.Na18.Text = "30";
             this.Na18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na18.TextChanged += new System.EventHandler(this.Na18_TextChanged);
             // 
             // label13
             // 
@@ -316,6 +327,7 @@
             this.Na19.TabIndex = 24;
             this.Na19.Text = "50";
             this.Na19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na19.TextChanged += new System.EventHandler(this.Na19_TextChanged);
             // 
             // label14
             // 
@@ -335,6 +347,7 @@
             this.Na20.TabIndex = 26;
             this.Na20.Text = "50";
             this.Na20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Na20.TextChanged += new System.EventHandler(this.Na20_TextChanged);
             // 
             // label15
             // 
@@ -380,6 +393,7 @@
             this.priceEnormal.Size = new System.Drawing.Size(83, 23);
             this.priceEnormal.TabIndex = 32;
             this.priceEnormal.Text = "130000";
+            this.priceEnormal.TextChanged += new System.EventHandler(this.priceEnormal_TextChanged);
             // 
             // priceE16
             // 
@@ -389,6 +403,7 @@
             this.priceE16.Size = new System.Drawing.Size(107, 23);
             this.priceE16.TabIndex = 34;
             this.priceE16.Text = "3700000";
+            this.priceE16.TextChanged += new System.EventHandler(this.priceE16_TextChanged);
             // 
             // priceMemories
             // 
@@ -398,6 +413,7 @@
             this.priceMemories.Size = new System.Drawing.Size(113, 23);
             this.priceMemories.TabIndex = 35;
             this.priceMemories.Text = "550000";
+            this.priceMemories.TextChanged += new System.EventHandler(this.priceMemories_TextChanged);
             // 
             // sEnd
             // 
@@ -408,6 +424,7 @@
             this.sEnd.TabIndex = 36;
             this.sEnd.Text = "18";
             this.sEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.sEnd.TextChanged += new System.EventHandler(this.sEnd_TextChanged);
             // 
             // sFrom
             // 
@@ -418,6 +435,7 @@
             this.sFrom.TabIndex = 37;
             this.sFrom.Text = "0";
             this.sFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.sFrom.TextChanged += new System.EventHandler(this.sFrom_TextChanged);
             // 
             // label19
             // 
@@ -437,7 +455,7 @@
             this.label20.TabIndex = 39;
             this.label20.Text = "на";
             // 
-            // frm2
+            // Frm2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -487,6 +505,7 @@
             this.Name = "Frm2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "BDO Enchant Simulator";
+            this.Load += new System.EventHandler(this.Frm2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

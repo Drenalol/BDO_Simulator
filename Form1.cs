@@ -365,9 +365,9 @@ namespace BDO_Sim
                 long m3 = fail20.Count*10;
                 long m4 = m3*pricemem;
                 long total20 = m + m2 + m4;
-                //                                
-                Invoke(new Action(() => hist.AppendText($"Суммарно потрачено денег от 1 до 15: {total15.ToString("N0",CultureInfo.CreateSpecificCulture("ru-RU"))}.\r\n")));
-                Invoke(new Action(() => hist.AppendText($"Суммарно потрачено денег от 15 до 20: {total20.ToString("N0",CultureInfo.CreateSpecificCulture("ru-RU"))}.\r\n\r\n\r\n")));
+                //                         
+                if (startFrom<15) Invoke(new Action(() => hist.AppendText($"Суммарно потрачено денег до 15 точки: {total15.ToString("N0",CultureInfo.CreateSpecificCulture("ru-RU"))}.\r\n")));
+                if (target>15) Invoke(new Action(() => hist.AppendText($"Суммарно потрачено денег от 15 точки: {total20.ToString("N0",CultureInfo.CreateSpecificCulture("ru-RU"))}.\r\n\r\n\r\n")));
                 Invoke(new Action(() => Control(true)));
                 Invoke(new Action(() => hist.ScrollToCaret()));
             }
