@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -132,10 +131,10 @@ namespace BDO_Sim
                 {
                     fails.Invoke(new Action(() => vFails = Convert.ToInt32(fails.Text)));
                 }
-                var end = 0;
-                while (end == 0)
+                var end = false;
+                while (end == false)
                 {
-                    var zatochil = ebanniyRandom.Next(1, 100);
+                    var zatochil = ebanniyRandom.NextDouble();
                     double chance;
                     if (Convert.ToInt32(vFails) >= _maxFails[n])
                     {
@@ -145,10 +144,10 @@ namespace BDO_Sim
                     {
                         chance = _baseChance[n] + (Convert.ToDouble(vFails)*_failUpChance[n]);
                     }
-                    if (zatochil <= chance)
+                    if (zatochil <= chance/100)
                     {
                         list.Add(Convert.ToInt32(vFails));
-                        end = 1;
+                        end = true;
                     }
                     else
                     {
@@ -186,12 +185,12 @@ namespace BDO_Sim
                 {
                     chance = _baseChance[n] + (Convert.ToDouble(fails.Text)*_failUpChance[n]);
                 }
-                var zatochil = ebanniyRandom.Next(1, 100);
+                var zatochil = ebanniyRandom.NextDouble();
                 primerno.Text = $"~{chance.ToString(CultureInfo.InvariantCulture)}%";
-            if (zatochil <= chance)
+            if (zatochil <= chance/100)
             {
                 kzarka.Text = Convert.ToString(tochkana + 1);
-                hist.AppendText($"Точка на {kzarka.Text} завершилась на {fails.Text} фейлах. Кубик сролил {zatochil}.\r\n");
+                hist.AppendText($"Точка на {kzarka.Text} завершилась на {fails.Text} фейлах. Кубик сролил {Math.Round(zatochil*100,2)}.\r\n");
                 fails.Text = @"0";
                 primerno.Text = @"~";
             }
@@ -230,10 +229,10 @@ namespace BDO_Sim
                 {
                     chance = _baseChance[enchant] + (Convert.ToDouble(fail) * _failUpChance[enchant]);
                 }
-                var zatochil = ebanniyRandom.Next(1, 100);
+                var zatochil = ebanniyRandom.NextDouble();
 
                 //
-                if (zatochil <= chance)
+                if (zatochil <= chance/100)
                 {
                     var failmsg = fail;
                     var enchantmsg = enchant+1;
@@ -284,10 +283,10 @@ namespace BDO_Sim
                     {
                         var enchant1 = enchantmsg;
                         var fail1 = failmsg;
-                        Invoke(new Action(() => hist.AppendText($"Точка на {enchant1} завершилась на {fail1} фейлах. Кубик сролил {zatochil}.\r\n")));
+                        Invoke(new Action(() => hist.AppendText($"Точка на {enchant1} завершилась на {fail1} фейлах. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n")));
                         Invoke(new Action(() => hist.ScrollToCaret()));
                     }
-                    else hist.AppendText($"Точка на {enchantmsg} завершилась на {failmsg} фейлах. Кубик сролил {zatochil}.\r\n");
+                    else hist.AppendText($"Точка на {enchantmsg} завершилась на {failmsg} фейлах. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n");
                 }
                 else
                 {
@@ -295,10 +294,10 @@ namespace BDO_Sim
                     {
                         var enchant1 = enchant;
                         var fail1 = fail;
-                        Invoke(new Action(() => hist.AppendText($"Точка на {enchant1+1} сфейлилась на {fail1} фейлах > {fail1 + _failatfail[enchant1]}. Кубик сролил {zatochil}.\r\n")));
+                        Invoke(new Action(() => hist.AppendText($"Точка на {enchant1+1} сфейлилась на {fail1} фейлах > {fail1 + _failatfail[enchant1]}. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n")));
                         Invoke(new Action(() => hist.ScrollToCaret()));
                     }
-                    else hist.AppendText($"Точка на {enchant - 1} сфейлилась на {fail} фейлах. Кубик сролил {zatochil}.\r\n");
+                    else hist.AppendText($"Точка на {enchant - 1} сфейлилась на {fail} фейлах. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n");
                     if (enchant >= 16 && enchant < 20)
                     {
                         if (enchant == 16)
@@ -334,7 +333,7 @@ namespace BDO_Sim
                         if (enchant==15) fail20.Add(16);
                     }
                 }
-                Thread.Sleep(10);
+                //Thread.Sleep(10);
             }
             if (InvokeRequired)
             {
@@ -408,6 +407,50 @@ namespace BDO_Sim
         {
             var frm = new Frm2();
             frm.ShowDialog();
+        }
+
+        private void fails_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double chance;
+                var n = Convert.ToInt16(kzarka.Text);
+                if (Convert.ToInt32(fails.Text) >= _maxFails[n])
+                {
+                    chance = _baseChance[n] + (_maxFails[n] * _failUpChance[n]);
+                }
+                else
+                {
+                    chance = _baseChance[n] + (Convert.ToDouble(fails.Text) * _failUpChance[n]);
+                }
+                primerno.Text = $"~{chance.ToString(CultureInfo.InvariantCulture)}%";
+            }
+            catch
+            {
+                //                
+            }
+        }
+
+        private void kzarka_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double chance;
+                var n = Convert.ToInt16(kzarka.Text);
+                if (Convert.ToInt32(fails.Text) >= _maxFails[n])
+                {
+                    chance = _baseChance[n] + (_maxFails[n]*_failUpChance[n]);
+                }
+                else
+                {
+                    chance = _baseChance[n] + (Convert.ToDouble(fails.Text)*_failUpChance[n]);
+                }
+                primerno.Text = $"~{chance.ToString(CultureInfo.InvariantCulture)}%";
+            }
+            catch
+            {
+                //                
+            }
         }
     }
 }

@@ -62,6 +62,7 @@
             this.fails.TabIndex = 1;
             this.fails.Text = "0";
             this.fails.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.fails.TextChanged += new System.EventHandler(this.fails_TextChanged);
             // 
             // hist
             // 
@@ -82,6 +83,7 @@
             this.kzarka.TabIndex = 0;
             this.kzarka.Text = "0";
             this.kzarka.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kzarka.TextChanged += new System.EventHandler(this.kzarka_TextChanged);
             // 
             // primerno
             // 
@@ -190,7 +192,7 @@
             this.MinimumSize = new System.Drawing.Size(625, 645);
             this.Name = "MainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BDO Enchant Simulator 1.1 by Drenalol";
+            this.Text = "BDO Enchant Simulator 1.2 by Drenalol";
             this.ResumeLayout(false);
             this.PerformLayout();
 
