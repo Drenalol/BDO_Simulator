@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +15,8 @@ namespace BDO_Sim
         {
             InitializeComponent();
         }
+
+        private const double Version = 1.3;
 
         public void Control(bool b)
         {
@@ -34,12 +37,12 @@ namespace BDO_Sim
                 100, //7
                 20, //8
                 17.5, //9
-                15, //10
-                12.5, //11
-                10, //12
-                7.5, //13
-                5, //14
-                2.5, //15
+                12.5,//15, //10
+                10,//12.5, //11
+                7.5,//10, //12
+                5,//7.5, //13
+                2.5,//5, //14
+                1.25,//2.5, //15
                 15, //16
                 7.5, //17
                 5, //18
@@ -58,12 +61,12 @@ namespace BDO_Sim
                 0, //7
                 2.5, //8
                 2, //9
-                1.5, //10
-                1.25, //11
-                0.75, //12
-                0.63, //13
-                0.5, //14
-                0.5, //15
+                1.25,//1.5, //10
+                1,//1.25, //11
+                0.6,//0.75, //12
+                0.5,//0.63, //13
+                0.35,//0.5, //14
+                0.25,//0.5, //15
                 1.5, //16
                 0.75, //17
                 0.5, //18
@@ -450,6 +453,37 @@ namespace BDO_Sim
             catch
             {
                 //                
+            }
+        }
+
+        private void MainFrm_Load(object sender, EventArgs e)
+        {
+            Text = @"BDO Enchant Simulator by Drenalol";
+        }
+
+        private void MainFrm_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var webClient = new WebClient())
+                {
+                    var response = webClient.DownloadString("http://pastebin.com/raw/Frpr0ted");
+                    var checkVersion = Convert.ToDouble(response, CultureInfo.GetCultureInfo("en-US"));
+                    if (Version < checkVersion)
+                    {
+                        if (MessageBox.Show(
+                            @"Появилась новая версия! Скачать?", @"Новая версия", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Asterisk
+                            ) == DialogResult.Yes)
+                        {
+                            Process.Start("https://git.io/vrHja");
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                //
             }
         }
     }

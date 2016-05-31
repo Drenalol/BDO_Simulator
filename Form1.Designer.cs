@@ -192,7 +192,9 @@
             this.MinimumSize = new System.Drawing.Size(625, 645);
             this.Name = "MainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BDO Enchant Simulator 1.2 by Drenalol";
+            this.Text = "BDO Enchant Simulator by Drenalol";
+            this.Load += new System.EventHandler(this.MainFrm_Load);
+            this.Shown += new System.EventHandler(this.MainFrm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

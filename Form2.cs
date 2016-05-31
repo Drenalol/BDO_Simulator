@@ -79,6 +79,13 @@ namespace BDO_Sim
                     sEnd.Text = doc.Root.Element("target")?.Attribute("value").Value;
                 }
             }
+            foreach (var control in Controls.Cast<Control>().Where(control => control is TextBox))
+            {
+                control.TextChanged += (o, args) =>
+                {
+                    SaveXml();
+                };
+            }
         }
 
         private void SaveXml()
@@ -106,96 +113,6 @@ namespace BDO_Sim
                 doc.Root?.Element("target")?.SetAttributeValue("value", sEnd.Text);
                 doc.Save("BDO_sim.xml");
             }
-        }
-
-        private void Na8_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na9_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na10_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na11_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na12_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na13_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na14_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na15_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na16_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na17_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na18_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na19_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void Na20_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void priceEnormal_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void priceE16_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void priceMemories_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void sFrom_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
-        }
-
-        private void sEnd_TextChanged(object sender, EventArgs e)
-        {
-            SaveXml();
         }
     }
 }
