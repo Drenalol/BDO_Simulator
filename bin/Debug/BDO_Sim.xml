@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <n8 value="0" />
-  <n9 value="0" />
-  <n10 value="0" />
-  <n11 value="0" />
-  <n12 value="0" />
-  <n13 value="0" />
-  <n14 value="0" />
-  <n15 value="0" />
-  <n16 value="20" />
-  <n17 value="25" />
-  <n18 value="30" />
-  <n19 value="40" />
-  <n20 value="60" />
-  <price15 value="135000" />
+  <n8 value="13" />
+  <n9 value="14" />
+  <n10 value="15" />
+  <n11 value="15" />
+  <n12 value="15" />
+  <n13 value="15" />
+  <n14 value="20" />
+  <n15 value="20" />
+  <n16 value="25" />
+  <n17 value="35" />
+  <n18 value="44" />
+  <n19 value="90" />
+  <n20 value="124" />
+  <price15 value="148000" />
   <price20 value="4000000" />
-  <pricememories value="550000" />
-  <startfrom value="15" />
-  <target value="20" />
+  <pricememories value="95000000" />
+  <startfrom value="0" />
+  <target value="3" />
 </root>

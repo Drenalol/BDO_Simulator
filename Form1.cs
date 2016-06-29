@@ -16,7 +16,7 @@ namespace BDO_Sim
             InitializeComponent();
         }
 
-        private const double Version = 1.3;
+        private const double Version = 1.4;
 
         public void Control(bool b)
         {
@@ -125,7 +125,41 @@ namespace BDO_Sim
         private void Enchant1000(int n)
         {
             var vFails = 0;
-            var tochkana = Convert.ToInt32(kzarka.Text) + 1;
+            var enchantcurr = n;
+            var tochkana = string.Empty;
+            switch (enchantcurr + 1)
+            {
+                case 16:
+                    {
+                        tochkana = @"I";
+                    }
+                    break;
+                case 17:
+                    {
+                        tochkana = @"II";
+                    }
+                    break;
+                case 18:
+                    {
+                        tochkana = @"III";
+                    }
+                    break;
+                case 19:
+                    {
+                        tochkana = @"IV";
+                    }
+                    break;
+                case 20:
+                    {
+                        tochkana = @"V";
+                    }
+                    break;
+                default:
+                    {
+                        tochkana = Convert.ToString(enchantcurr+1);
+                    }
+                    break;
+            }
             var ebanniyRandom = new Random();
             var list = new List<int>();
             for (var i = 0; i < Convert.ToInt32(cnt.Text); i++)
@@ -179,7 +213,8 @@ namespace BDO_Sim
         {
                 var ebanniyRandom = new Random();
                 double chance;
-                var tochkana = Convert.ToInt32(kzarka.Text);
+                //var tochkana = Convert.ToInt32(kzarka.Text);
+                var tochkana = n;
                 if (Convert.ToInt32(fails.Text) >= _maxFails[n])
                 {
                     chance = _baseChance[n] + (_maxFails[n]*_failUpChance[n]);
@@ -203,7 +238,7 @@ namespace BDO_Sim
             }
         }
 
-        public void EnchantReal(int startFrom,int target,IReadOnlyList<int> eFails,int price15,int price20,int pricemem)
+        public void EnchantReal(int startFrom,int target,IReadOnlyList<int> eFails,long price15, long price20, long pricemem)
         {
             var success15 = new List<int>();
             var fail15 = new List<int>();
@@ -284,23 +319,88 @@ namespace BDO_Sim
                     }
                     if (InvokeRequired)
                     {
-                        var enchant1 = enchantmsg;
+                        var enchant1 = string.Empty;
+                        switch (enchantmsg)
+                        {
+                            case 16:
+                                {
+                                    enchant1 = @"I";
+                                }
+                                break;
+                            case 17:
+                                {
+                                    enchant1 = @"II";
+                                }
+                                break;
+                            case 18:
+                                {
+                                    enchant1 = @"III";
+                                }
+                                break;
+                            case 19:
+                                {
+                                    enchant1 = @"IV";
+                                }
+                                break;
+                            case 20:
+                                {
+                                    enchant1 = @"V";
+                                }
+                                break;
+                            default:
+                            {
+                                enchant1 = Convert.ToString(enchantmsg);
+                            }
+                                break;
+                        }
                         var fail1 = failmsg;
                         Invoke(new Action(() => hist.AppendText($"Точка на {enchant1} завершилась на {fail1} фейлах. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n")));
                         Invoke(new Action(() => hist.ScrollToCaret()));
                     }
-                    else hist.AppendText($"Точка на {enchantmsg} завершилась на {failmsg} фейлах. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n");
                 }
                 else
                 {
                     if (InvokeRequired)
                     {
-                        var enchant1 = enchant;
+                        var enchantcurr = enchant;
+                        var enchantmsg = string.Empty;
+                        switch (enchantcurr + 1)
+                        {
+                            case 16:
+                                {
+                                    enchantmsg = @"I";
+                                }
+                                break;
+                            case 17:
+                                {
+                                    enchantmsg = @"II";
+                                }
+                                break;
+                            case 18:
+                                {
+                                    enchantmsg = @"III";
+                                }
+                                break;
+                            case 19:
+                                {
+                                    enchantmsg = @"IV";
+                                }
+                                break;
+                            case 20:
+                                {
+                                    enchantmsg = @"V";
+                                }
+                                break;
+                            default:
+                                {
+                                    enchantmsg = Convert.ToString(enchantcurr);
+                                }
+                                break;
+                        }
                         var fail1 = fail;
-                        Invoke(new Action(() => hist.AppendText($"Точка на {enchant1+1} сфейлилась на {fail1} фейлах > {fail1 + _failatfail[enchant1]}. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n")));
+                        Invoke(new Action(() => hist.AppendText($"Точка на {enchantmsg} сфейлилась на {fail1} фейлах > {fail1 + _failatfail[enchantcurr]}. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n")));
                         Invoke(new Action(() => hist.ScrollToCaret()));
                     }
-                    else hist.AppendText($"Точка на {enchant - 1} сфейлилась на {fail} фейлах. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n");
                     if (enchant >= 16 && enchant < 20)
                     {
                         if (enchant == 16)
@@ -376,19 +476,268 @@ namespace BDO_Sim
             else Control(true);
         }
 
+        public void EnchantReal_Jewel(int startFrom, int target, IReadOnlyList<int> eFails, long price)
+        {
+            var success20Sum = new List<int>();
+            var success20Cnt = new List<int>();
+            var fail20Sum = new List<int>();
+            var fail20Cnt = new List<int>();
+            var f16 = 0;
+            var f17 = 0;
+            var f18 = 0;
+            var f19 = 0;
+            var f20 = 0;
+            var enchant = startFrom;
+            var fail = eFails[enchant];
+            var ebanniyRandom = new Random();
+            while (enchant != target)
+            {
+                //Enchant
+                double chance;
+                if (enchant == 19 && f20 != 0) fail = f20;
+                if (enchant == 18 && f19 != 0) fail = f19;
+                if (enchant == 17 && f18 != 0) fail = f18;
+                if (enchant == 16 && f17 != 0) fail = f17;
+                if (enchant == 15 && f16 != 0) fail = f16;
+                if (fail >= _maxFails[enchant])
+                {
+                    chance = _baseChance[enchant] + (_maxFails[enchant] * _failUpChance[enchant]);
+                }
+                else
+                {
+                    chance = _baseChance[enchant] + (Convert.ToDouble(fail) * _failUpChance[enchant]);
+                }
+                var zatochil = ebanniyRandom.NextDouble();
+
+                //
+                if (zatochil <= chance / 100)
+                {
+                    var failmsg = fail;
+                    var enchantmsg = enchant + 1;
+                    if (enchant < 20)
+                    {
+                        if (enchant == 15 && f16 != 0)
+                        {
+                            f16 = 0;
+                            enchant++;
+                            fail = f17 != 0 ? f17 : eFails[enchant];
+                            success20Sum.Add(2);
+                            success20Cnt.Add(16);
+                        }
+                        else if (enchant == 16 && f17 != 0)
+                        {
+                            f17 = 0;
+                            enchant++;
+                            fail = f18 != 0 ? f18 : eFails[enchant];
+                            success20Sum.Add(1);
+                            success20Cnt.Add(17);
+                        }
+                        else if (enchant == 17 && f18 != 0)
+                        {
+                            f18 = 0;
+                            enchant++;
+                            fail = f19 != 0 ? f19 : eFails[enchant];
+                            success20Sum.Add(1);
+                            success20Cnt.Add(18);
+                        }
+                        else if (enchant == 18 && f19 != 0)
+                        {
+                            f19 = 0;
+                            enchant++;
+                            fail = f20 != 0 ? f20 : eFails[enchant];
+                            success20Sum.Add(1);
+                            success20Cnt.Add(19);
+                        }
+                        else if (enchant == 19 && f20 != 0)
+                        {
+                            f20 = 0;
+                            enchant++;
+                            success20Sum.Add(1);
+                            success20Cnt.Add(20);
+                        }
+                        else
+                        {
+                            if (enchant >= 15)
+                            {
+                                success20Sum.Add(2);
+                                success20Cnt.Add(enchantmsg);
+                            }
+                            enchant++;
+                            if (enchant < 20) fail = eFails[enchant];
+                        }
+                    }
+                    if (InvokeRequired)
+                    {
+                        var enchant1 = string.Empty;
+                        switch (enchantmsg)
+                        {
+                            case 16:
+                                {
+                                    enchant1 = @"I";
+                                }
+                                break;
+                            case 17:
+                                {
+                                    enchant1 = @"II";
+                                }
+                                break;
+                            case 18:
+                                {
+                                    enchant1 = @"III";
+                                }
+                                break;
+                            case 19:
+                                {
+                                    enchant1 = @"IV";
+                                }
+                                break;
+                            case 20:
+                                {
+                                    enchant1 = @"V";
+                                }
+                                break;
+                        }
+                        var fail1 = failmsg;
+                        Invoke(new Action(() => hist.AppendText($"Точка на {enchant1} завершилась на {fail1} фейлах. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n")));
+                        Invoke(new Action(() => hist.ScrollToCaret()));
+                    }
+                }
+                else
+                {
+                    if (InvokeRequired)
+                    {
+                        var enchantcurr = enchant;
+                        var enchantmsg = string.Empty;
+                        switch (enchantcurr + 1)
+                        {
+                            case 16:
+                                {
+                                    enchantmsg = @"I";
+                                }
+                                break;
+                            case 17:
+                                {
+                                    enchantmsg = @"II";
+                                }
+                                break;
+                            case 18:
+                                {
+                                    enchantmsg = @"III";
+                                }
+                                break;
+                            case 19:
+                                {
+                                    enchantmsg = @"IV";
+                                }
+                                break;
+                            case 20:
+                                {
+                                    enchantmsg = @"V";
+                                }
+                                break;
+                        }
+                        var fail1 = fail;
+                        Invoke(new Action(() => hist.AppendText($"Точка на {enchantmsg} сфейлилась на {fail1} фейлах > {fail1 + 1}. Кубик сролил {Math.Round(zatochil * 100, 2)}.\r\n")));
+                        Invoke(new Action(() => hist.ScrollToCaret()));
+                    }
+                    if (enchant >= 15 && enchant < 20)
+                    {
+                        if (enchant == 15)
+                        {
+                            f16 = fail + 1;
+                            fail20Sum.Add(2);
+                            fail20Cnt.Add(16);
+                        }
+                        if (enchant == 16)
+                        {
+                            f17 = fail + 1;
+                            fail = eFails[enchant - 1];
+                            fail20Sum.Add(1);
+                            fail20Cnt.Add(17);
+                        }
+                        if (enchant == 17)
+                        {
+                            f18 = fail + 1;
+                            fail = eFails[enchant - 2];
+                            fail20Sum.Add(1);
+                            fail20Cnt.Add(18);
+                        }
+                        if (enchant == 18)
+                        {
+                            f19 = fail + 1;
+                            fail = eFails[enchant - 3];
+                            fail20Sum.Add(1);
+                            fail20Cnt.Add(19);
+                        }
+                        if (enchant == 19)
+                        {
+                            f20 = fail + 1;
+                            fail = eFails[enchant - 4];
+                            fail20Sum.Add(1);
+                            fail20Cnt.Add(20);
+                        }
+                        enchant = 15;
+                    }
+                }
+                //Thread.Sleep(10);
+            }
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => hist.AppendText("--------------------------------------------------\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Успешных тыков на I: {success20Cnt.Count(i => i == 16)}.\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Неуспешных тыков на I: {fail20Cnt.Count(i => i == 16)}.\r\n\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Успешных тыков на II: {success20Cnt.Count(i => i == 17)}.\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Неуспешных тыков на II: {fail20Cnt.Count(i => i == 17)}.\r\n\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Успешных тыков на III: {success20Cnt.Count(i => i == 18)}.\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Неуспешных тыков на III: {fail20Cnt.Count(i => i == 18)}.\r\n\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Успешных тыков на IV: {success20Cnt.Count(i => i == 19)}.\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Неуспешных тыков на IV: {fail20Cnt.Count(i => i == 19)}.\r\n\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Успешных тыков на V: {success20Cnt.Count(i => i == 20)}.\r\n")));
+                Invoke(new Action(() => hist.AppendText($"Неуспешных тыков на V: {fail20Cnt.Count(i => i == 20)}.\r\n")));
+                Invoke(new Action(() => hist.AppendText("--------------------------------------------------\r\n")));
+                //20
+                long m1 = success20Sum.Sum() * price;
+                long m2 = fail20Sum.Sum() * price;
+                var total20 = m1 + m2;
+                //                         
+                Invoke(new Action(() => hist.AppendText($"Суммарно потрачено денег: {total20.ToString("N0", CultureInfo.CreateSpecificCulture("ru-RU"))}.\r\n\r\n\r\n")));
+                Invoke(new Action(() => Control(true)));
+                Invoke(new Action(() => hist.ScrollToCaret()));
+            }
+            else Control(true);
+        }
+
         private void tochka_Click(object sender, EventArgs e)
         {
-            var en = Convert.ToInt32(kzarka.Text);
-            if (en < 20) Enchant(en);
+            var n = 0;
+            if (kzarka.Text.Contains("I") || kzarka.Text.Contains("V"))
+            {
+                if (kzarka.Text == @"I") { n = 16; }
+                if (kzarka.Text == @"II") { n = 17; }
+                if (kzarka.Text == @"III") { n = 18; }
+                if (kzarka.Text == @"IV") { n = 19; }
+                if (kzarka.Text == @"V") { n = 20; }
+            }
+            else n = Convert.ToInt16(kzarka.Text);
+            if (n < 20) Enchant(n);
         }
         
         private async void enchant1000_Click(object sender, EventArgs e)
-        {            
-            var en = Convert.ToInt32(kzarka.Text);
-            if (en < 20)
+        {
+            var n = 0;
+            if (kzarka.Text.Contains("I") || kzarka.Text.Contains("V"))
+            {
+                if (kzarka.Text == @"I") { n = 16; }
+                if (kzarka.Text == @"II") { n = 17; }
+                if (kzarka.Text == @"III") { n = 18; }
+                if (kzarka.Text == @"IV") { n = 19; }
+                if (kzarka.Text == @"V") { n = 20; }
+            }
+            else n = Convert.ToInt16(kzarka.Text);
+            if (n < 20)
             {
                 Control(false);
-                await Task.Factory.StartNew(() => Enchant1000(en));
+                await Task.Factory.StartNew(() => Enchant1000(n));
             }
         }
 
@@ -417,7 +766,16 @@ namespace BDO_Sim
             try
             {
                 double chance;
-                var n = Convert.ToInt16(kzarka.Text);
+                var n = 0;
+                if (kzarka.Text.Contains("I") || kzarka.Text.Contains("V"))
+                {
+                    if (kzarka.Text == @"I") {n = 16;}
+                    if (kzarka.Text == @"II") { n = 17; }
+                    if (kzarka.Text == @"III") { n = 18; }
+                    if (kzarka.Text == @"IV") { n = 19; }
+                    if (kzarka.Text == @"V") { n = 20; }
+                }
+                else n = Convert.ToInt16(kzarka.Text);
                 if (Convert.ToInt32(fails.Text) >= _maxFails[n])
                 {
                     chance = _baseChance[n] + (_maxFails[n] * _failUpChance[n]);
@@ -438,8 +796,36 @@ namespace BDO_Sim
         {
             try
             {
-                double chance;
                 var n = Convert.ToInt16(kzarka.Text);
+                switch (n)
+                {
+                    case 16:
+                    {
+                        kzarka.Text = @"I";
+                    }
+                        break;
+                    case 17:
+                    {
+                        kzarka.Text = @"II";
+                    }
+                        break;
+                    case 18:
+                    {
+                        kzarka.Text = @"III";
+                    }
+                        break;
+                    case 19:
+                    {
+                        kzarka.Text = @"IV";
+                    }
+                        break;
+                    case 20:
+                    {
+                        kzarka.Text = @"V";
+                    }
+                        break;
+                }
+                double chance;                
                 if (Convert.ToInt32(fails.Text) >= _maxFails[n])
                 {
                     chance = _baseChance[n] + (_maxFails[n]*_failUpChance[n]);

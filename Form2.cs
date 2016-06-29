@@ -17,39 +17,85 @@ namespace BDO_Sim
 
         private async void poehali_Click(object sender, EventArgs e)
         {
-            Enabled = false;
-            var qwe = Application.OpenForms.OfType<MainFrm>().Single();
-            var lst = new List<int>
+            var start = Convert.ToInt16(sFrom.Text);
+            var end = Convert.ToInt16(sEnd.Text);
+            if (end <= 5 && jewels.Checked)
             {
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                Convert.ToInt16(Na8.Text),
-                Convert.ToInt16(Na9.Text),
-                Convert.ToInt16(Na10.Text),
-                Convert.ToInt16(Na11.Text),
-                Convert.ToInt16(Na12.Text),
-                Convert.ToInt16(Na13.Text),
-                Convert.ToInt16(Na14.Text),
-                Convert.ToInt16(Na15.Text),
-                Convert.ToInt16(Na16.Text),
-                Convert.ToInt16(Na17.Text),
-                Convert.ToInt16(Na18.Text),
-                Convert.ToInt16(Na19.Text),
-                Convert.ToInt16(Na20.Text)
-            };
-            qwe.Control(false);
-            await
-                Task.Factory.StartNew(
-                    () =>
-                        qwe.EnchantReal(Convert.ToInt16(sFrom.Text), Convert.ToInt16(sEnd.Text), lst,
-                            Convert.ToInt32(priceEnormal.Text), Convert.ToInt32(priceE16.Text),
-                            Convert.ToInt32(priceMemories.Text)));
-            Close();
+                if (start == 0) { start = 15; }
+                if (start == 1) { start = 16; }
+                if (start == 2) { start = 17; }
+                if (start == 3) { start = 18; }
+                if (start == 4) { start = 19; }
+                if (end == 1) { end = 16; }
+                if (end == 2) { end = 17; }
+                if (end == 3) { end = 18; }
+                if (end == 4) { end = 19; }
+                if (end == 5) { end = 20; }
+                Enabled = false;
+                var qwe = Application.OpenForms.OfType<MainFrm>().Single();
+                var lst = new List<int>
+                {
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    Convert.ToInt16(Na16.Text),
+                    Convert.ToInt16(Na17.Text),
+                    Convert.ToInt16(Na18.Text),
+                    Convert.ToInt16(Na19.Text),
+                    Convert.ToInt16(Na20.Text)
+                };
+                qwe.Control(false);
+                await Task.Factory.StartNew(() => qwe.EnchantReal_Jewel(start, end, lst,Convert.ToInt32(priceMemories.Text)));
+                Close();
+            }
+            if (!jewels.Checked)
+            {
+                Enabled = false;
+                var qwe = Application.OpenForms.OfType<MainFrm>().Single();
+                var lst = new List<int>
+                {
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    Convert.ToInt16(Na8.Text),
+                    Convert.ToInt16(Na9.Text),
+                    Convert.ToInt16(Na10.Text),
+                    Convert.ToInt16(Na11.Text),
+                    Convert.ToInt16(Na12.Text),
+                    Convert.ToInt16(Na13.Text),
+                    Convert.ToInt16(Na14.Text),
+                    Convert.ToInt16(Na15.Text),
+                    Convert.ToInt16(Na16.Text),
+                    Convert.ToInt16(Na17.Text),
+                    Convert.ToInt16(Na18.Text),
+                    Convert.ToInt16(Na19.Text),
+                    Convert.ToInt16(Na20.Text)
+                };
+                qwe.Control(false);
+                await
+                    Task.Factory.StartNew(
+                        () =>
+                            qwe.EnchantReal(Convert.ToInt16(sFrom.Text), Convert.ToInt16(sEnd.Text), lst,
+                                Convert.ToInt32(priceEnormal.Text), Convert.ToInt32(priceE16.Text),
+                                Convert.ToInt32(priceMemories.Text)));
+                Close();
+            }
         }
 
         private void Frm2_Load(object sender, EventArgs e)
@@ -112,6 +158,14 @@ namespace BDO_Sim
                 doc.Root?.Element("startfrom")?.SetAttributeValue("value", sFrom.Text);
                 doc.Root?.Element("target")?.SetAttributeValue("value", sEnd.Text);
                 doc.Save("BDO_sim.xml");
+            }
+        }
+
+        private void jewels_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (var control in Controls.Cast<Control>().Where(control => (string) control.Tag != "j"))
+            {
+                control.Visible = !jewels.Checked;
             }
         }
     }

@@ -161,11 +161,11 @@
             // 
             // real
             // 
-            this.real.Location = new System.Drawing.Point(414, 89);
+            this.real.Location = new System.Drawing.Point(373, 89);
             this.real.Name = "real";
-            this.real.Size = new System.Drawing.Size(183, 23);
+            this.real.Size = new System.Drawing.Size(224, 23);
             this.real.TabIndex = 17;
-            this.real.Text = "Почти реальная точка";
+            this.real.Text = "Эмуляция точки шмоток и бижутерии";
             this.real.UseVisualStyleBackColor = true;
             this.real.Click += new System.EventHandler(this.button3_Click);
             // 

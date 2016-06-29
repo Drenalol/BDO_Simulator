@@ -68,6 +68,8 @@
             this.sFrom = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.jewels = new System.Windows.Forms.CheckBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // poehali
@@ -76,6 +78,7 @@
             this.poehali.Name = "poehali";
             this.poehali.Size = new System.Drawing.Size(166, 23);
             this.poehali.TabIndex = 0;
+            this.poehali.Tag = "j";
             this.poehali.Text = "Поехали";
             this.poehali.UseVisualStyleBackColor = true;
             this.poehali.Click += new System.EventHandler(this.poehali_Click);
@@ -102,10 +105,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 9);
+            this.label2.Location = new System.Drawing.Point(131, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(408, 13);
             this.label2.TabIndex = 3;
+            this.label2.Tag = "j";
             this.label2.Text = "Здесь указываем со скольки фейлов начинаем точить на определенную точку";
             // 
             // label3
@@ -246,9 +250,10 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(340, 33);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.Size = new System.Drawing.Size(27, 13);
             this.label10.TabIndex = 19;
-            this.label10.Text = "На 16";
+            this.label10.Tag = "j";
+            this.label10.Text = "На I";
             // 
             // Na16
             // 
@@ -257,6 +262,7 @@
             this.Na16.Name = "Na16";
             this.Na16.Size = new System.Drawing.Size(35, 23);
             this.Na16.TabIndex = 18;
+            this.Na16.Tag = "j";
             this.Na16.Text = "15";
             this.Na16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -265,9 +271,10 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(381, 33);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 13);
+            this.label11.Size = new System.Drawing.Size(30, 13);
             this.label11.TabIndex = 21;
-            this.label11.Text = "На 17";
+            this.label11.Tag = "j";
+            this.label11.Text = "На II";
             // 
             // Na17
             // 
@@ -276,6 +283,7 @@
             this.Na17.Name = "Na17";
             this.Na17.Size = new System.Drawing.Size(35, 23);
             this.Na17.TabIndex = 20;
+            this.Na17.Tag = "j";
             this.Na17.Text = "20";
             this.Na17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -284,9 +292,10 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(422, 33);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 13);
+            this.label12.Size = new System.Drawing.Size(33, 13);
             this.label12.TabIndex = 23;
-            this.label12.Text = "На 18";
+            this.label12.Tag = "j";
+            this.label12.Text = "На III";
             // 
             // Na18
             // 
@@ -295,6 +304,7 @@
             this.Na18.Name = "Na18";
             this.Na18.Size = new System.Drawing.Size(35, 23);
             this.Na18.TabIndex = 22;
+            this.Na18.Tag = "j";
             this.Na18.Text = "30";
             this.Na18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -303,9 +313,10 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(463, 33);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(36, 13);
+            this.label13.Size = new System.Drawing.Size(34, 13);
             this.label13.TabIndex = 25;
-            this.label13.Text = "На 19";
+            this.label13.Tag = "j";
+            this.label13.Text = "На IV";
             // 
             // Na19
             // 
@@ -314,6 +325,7 @@
             this.Na19.Name = "Na19";
             this.Na19.Size = new System.Drawing.Size(35, 23);
             this.Na19.TabIndex = 24;
+            this.Na19.Tag = "j";
             this.Na19.Text = "50";
             this.Na19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -322,9 +334,10 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(504, 33);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(36, 13);
+            this.label14.Size = new System.Drawing.Size(31, 13);
             this.label14.TabIndex = 27;
-            this.label14.Text = "На 20";
+            this.label14.Tag = "j";
+            this.label14.Text = "На V";
             // 
             // Na20
             // 
@@ -333,6 +346,7 @@
             this.Na20.Name = "Na20";
             this.Na20.Size = new System.Drawing.Size(35, 23);
             this.Na20.TabIndex = 26;
+            this.Na20.Tag = "j";
             this.Na20.Text = "50";
             this.Na20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -343,6 +357,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(232, 13);
             this.label15.TabIndex = 28;
+            this.label15.Tag = "j";
             this.label15.Text = "Здесь указываем цены на точки и печеньки";
             // 
             // label16
@@ -352,25 +367,28 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(83, 13);
             this.label16.TabIndex = 29;
+            this.label16.Tag = "j";
             this.label16.Text = "Обычная точка";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(129, 103);
+            this.label17.Location = new System.Drawing.Point(113, 103);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(58, 13);
             this.label17.TabIndex = 30;
+            this.label17.Tag = "j";
             this.label17.Text = "Точка 16+";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(271, 103);
+            this.label18.Location = new System.Drawing.Point(199, 103);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 13);
+            this.label18.Size = new System.Drawing.Size(131, 13);
             this.label18.TabIndex = 31;
-            this.label18.Text = "Печенька";
+            this.label18.Tag = "j";
+            this.label18.Text = "Печенька \\ 0 Бижутерия";
             // 
             // priceEnormal
             // 
@@ -379,6 +397,7 @@
             this.priceEnormal.Name = "priceEnormal";
             this.priceEnormal.Size = new System.Drawing.Size(83, 23);
             this.priceEnormal.TabIndex = 32;
+            this.priceEnormal.Tag = "j";
             this.priceEnormal.Text = "130000";
             // 
             // priceE16
@@ -386,18 +405,20 @@
             this.priceE16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.priceE16.Location = new System.Drawing.Point(114, 119);
             this.priceE16.Name = "priceE16";
-            this.priceE16.Size = new System.Drawing.Size(107, 23);
+            this.priceE16.Size = new System.Drawing.Size(73, 23);
             this.priceE16.TabIndex = 34;
-            this.priceE16.Text = "3700000";
+            this.priceE16.Tag = "j";
+            this.priceE16.Text = "4000000";
             // 
             // priceMemories
             // 
             this.priceMemories.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.priceMemories.Location = new System.Drawing.Point(239, 119);
+            this.priceMemories.Location = new System.Drawing.Point(202, 119);
             this.priceMemories.Name = "priceMemories";
-            this.priceMemories.Size = new System.Drawing.Size(113, 23);
+            this.priceMemories.Size = new System.Drawing.Size(148, 23);
             this.priceMemories.TabIndex = 35;
-            this.priceMemories.Text = "550000";
+            this.priceMemories.Tag = "j";
+            this.priceMemories.Text = "750000";
             // 
             // sEnd
             // 
@@ -406,6 +427,7 @@
             this.sEnd.Name = "sEnd";
             this.sEnd.Size = new System.Drawing.Size(30, 23);
             this.sEnd.TabIndex = 36;
+            this.sEnd.Tag = "j";
             this.sEnd.Text = "18";
             this.sEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -416,6 +438,7 @@
             this.sFrom.Name = "sFrom";
             this.sFrom.Size = new System.Drawing.Size(29, 23);
             this.sFrom.TabIndex = 37;
+            this.sFrom.Tag = "j";
             this.sFrom.Text = "0";
             this.sFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -426,6 +449,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(51, 13);
             this.label19.TabIndex = 38;
+            this.label19.Tag = "j";
             this.label19.Text = "Точим с ";
             // 
             // label20
@@ -435,13 +459,39 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(19, 13);
             this.label20.TabIndex = 39;
+            this.label20.Tag = "j";
             this.label20.Text = "на";
+            // 
+            // jewels
+            // 
+            this.jewels.AutoSize = true;
+            this.jewels.Location = new System.Drawing.Point(12, 8);
+            this.jewels.Name = "jewels";
+            this.jewels.Size = new System.Drawing.Size(87, 17);
+            this.jewels.TabIndex = 40;
+            this.jewels.Tag = "j";
+            this.jewels.Text = "Бижутерия?";
+            this.jewels.UseVisualStyleBackColor = true;
+            this.jewels.CheckedChanged += new System.EventHandler(this.jewels_CheckedChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(93, 4);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(27, 13);
+            this.label21.TabIndex = 41;
+            this.label21.Tag = "j";
+            this.label21.Text = "new";
             // 
             // Frm2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 146);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.jewels);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.sFrom);
@@ -534,5 +584,7 @@
         private System.Windows.Forms.TextBox sFrom;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.CheckBox jewels;
+        private System.Windows.Forms.Label label21;
     }
 }
